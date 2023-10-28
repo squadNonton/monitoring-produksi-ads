@@ -34,6 +34,8 @@
         <script src="{{asset('assets/sweetalert2/sweetalert2.all.min.js')}}"></script>
         <script src="{{ asset ('assets/highchart/highcharts.js')}}"></script>
 
+        @include('Template.head')
+
         <script>
             $.ajaxSetup({
                 headers: {

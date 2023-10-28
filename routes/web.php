@@ -19,7 +19,9 @@ use App\Http\Controllers\MainController;
 // });
 
 
-Route::get('/', [MainController::class, 'scheduleprod'])->name('scheduleprod');
+Route::get('/', [MainController::class, 'dasbor'])->name('dasbor');
+Route::get('dasbor', [MainController::class, 'dasbor'])->name('dasbor');
+Route::get('produksi', [MainController::class, 'produksi'])->name('produksi');
 Route::get('scheduleprod', [MainController::class, 'scheduleprod'])->name('scheduleprod');
 Route::post('dataprodpcs', [MainController::class, 'dataprodpcs'])->name('dataprodpcs');
 Route::post('dataprodkg', [MainController::class, 'dataprodkg'])->name('dataprodkg');

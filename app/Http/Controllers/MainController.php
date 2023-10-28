@@ -20,6 +20,26 @@ use DB;
 class MainController extends Controller
 {
 
+    function dasbor(){
+        $nowo   = DB::select("SELECT DISTINCT no_wo FROM trx_prod_in");
+        $data = array(
+            'title' => 'Production Report (Cutting)',
+            'nowo'  => $nowo
+        );
+
+        return view('Produksi.dasbor')->with($data);
+    }
+
+    function produksi(){
+        $nowo   = DB::select("SELECT DISTINCT no_wo FROM trx_prod_in");
+        $data = array(
+            'title' => 'Monitoring Produksi',
+            'nowo'  => $nowo
+        );
+
+        return view('Produksi.schedule')->with($data);
+    }
+
     //Schedule Produksi
     function scheduleprod(){
         $nowo   = DB::select("SELECT DISTINCT no_wo FROM trx_prod_in");
