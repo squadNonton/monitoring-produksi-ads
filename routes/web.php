@@ -25,8 +25,17 @@ Route::get('produksi', [MainController::class, 'produksi'])->name('produksi');
 Route::get('scheduleprod', [MainController::class, 'scheduleprod'])->name('scheduleprod');
 Route::post('dataprodpcs', [MainController::class, 'dataprodpcs'])->name('dataprodpcs');
 Route::post('dataprodkg', [MainController::class, 'dataprodkg'])->name('dataprodkg');
+Route::post('dataeffmachine', [MainController::class, 'dataeffmachine'])->name('dataeffmachine');
+Route::post('dataactmanpower', [MainController::class, 'dataactmanpower'])->name('dataactmanpower');
+
 
 Route::post('actionadd', [MainController::class, 'actionadd'])->name('actionadd');
+
+// Produksi
+Route::get('prodin', [MainController::class, 'prodin'])->name('prodin');
+Route::get('prodout', [MainController::class, 'prodout'])->name('prodout');
+Route::get('effmachine', [MainController::class, 'effmachine'])->name('effmachine');
+Route::get('actmanpower', [MainController::class, 'actmanpower'])->name('actmanpower');
 
 
 

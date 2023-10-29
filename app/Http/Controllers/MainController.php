@@ -21,17 +21,17 @@ class MainController extends Controller
 {
 
     function dasbor(){
-        $nowo   = DB::select("SELECT DISTINCT no_wo FROM trx_prod_in");
+        $mc   = DB::select("SELECT * FROM mst_machine");
         $data = array(
-            'title' => 'Production Report (Cutting)',
-            'nowo'  => $nowo
+            'title' => 'Production Report',
+            'mc'    => $mc
         );
 
         return view('Produksi.dasbor')->with($data);
     }
 
     function produksi(){
-        $nowo   = DB::select("SELECT DISTINCT no_wo FROM trx_prod_in");
+        $nowo   = DB::select("SELECT * FROM trx_prod_in");
         $data = array(
             'title' => 'Monitoring Produksi',
             'nowo'  => $nowo
@@ -42,7 +42,7 @@ class MainController extends Controller
 
     //Schedule Produksi
     function scheduleprod(){
-        $nowo   = DB::select("SELECT DISTINCT no_wo FROM trx_prod_in");
+        $nowo   = DB::select("SELECT * FROM trx_prod_in");
         $data = array(
             'title' => 'Monitoring Produksi',
             'nowo'  => $nowo
@@ -53,15 +53,37 @@ class MainController extends Controller
 
     function dataprodpcs(Request $request) : object {
         $id     = $request['id'];
-        $arr    = dataprodpcs($id);
+        $start  = $request['start'];
+        $end    = $request['end'];
+        $arr    = dataprodpcs($id, $start, $end);
         return response($arr);
     }
 
     function dataprodkg(Request $request) : object {
         $id     = $request['id'];
-        $arr    = dataprodkg($id);
+        $start  = $request['start'];
+        $end    = $request['end'];
+        $arr    = dataprodkg($id, $start, $end);
         return response($arr);
     }
+
+    function dataeffmachine(Request $request) : object {
+        $id     = $request['id'];
+        $start  = $request['start'];
+        $end    = $request['end'];
+        $arr    = dataeffmachine($id, $start, $end);
+        return response($arr);
+    }
+
+    function dataactmanpower(Request $request) : object {
+        $id     = $request['id'];
+        $start  = $request['start'];
+        $end    = $request['end'];
+        $arr    = dataactmanpower($id, $start, $end);
+        return response($arr);
+    }
+
+    
 
     // Action Add
     function actionadd(Request $request) : object {
@@ -71,10 +93,53 @@ class MainController extends Controller
         return response('success');
     }
 
+    // Action Produksi
+    function prodin(){
+        $mc   = DB::select("SELECT * FROM mst_machine");
+        $data = array(
+            'title' => 'Produski IN',
+            'mc'    => $mc
+        );
+
+        return view('Produksi.in')->with($data);
+    }
+
+    function prodout(){
+        $mc   = DB::select("SELECT * FROM mst_machine");
+        $data = array(
+            'title' => 'Produksi OUT',
+            'mc'    => $mc
+        );
+
+        return view('Produksi.out')->with($data);
+    }
+
+    function effmachine(){
+        $mc   = DB::select("SELECT * FROM mst_machine");
+        $data = array(
+            'title' => 'Effisiensi Machine',
+            'mc'    => $mc
+        );
+
+        return view('Produksi.effmachine')->with($data);
+    }
+
+    function actmanpower(){
+        $mc   = DB::select("SELECT * FROM mst_machine");
+        $data = array(
+            'title' => 'Activity Man Power',
+            'mc'    => $mc
+        );
+
+        return view('Produksi.actmanpower')->with($data);
+    }
+
     // Tes Looping
     function tesmain(){
-        $id    = 1;
-        $arr   = dataprodpcs($id);
+        $id     = 1;
+        $start  = '2023-10-27';
+        $end    = '2023-10-31';
+        $arr   = dataactmanpower($id, $start, $end);
         echo "<pre>";print_r($arr);exit;
     }
 }

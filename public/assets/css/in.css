@@ -9,27 +9,6 @@ figure div{
     height: 20rem;
 }
 
-table thead th,
-table tbody td{
-    vertical-align: middle;
-}
-
-table thead th{
-    background: #5272F2 !important;
-    color: #FFFFFF !important;
-    font-weight: bold !important;
-}
-
-table.dasbor tbody tr td:nth-child(1){
-    background: #2E97A7 !important;
-    color: #FFFFFF !important;
-    font-weight: bold !important;
-}
-
-.card-body.issue{
-    height: 22.5rem;
-}
-
 
 .datepicker-top-left::before, 
 .datepicker-top-left::after, 

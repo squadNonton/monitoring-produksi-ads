@@ -70,12 +70,7 @@
 
                         <div class="col-md-12">
                             <label for="" class="form-label">WO</label>
-                            <select id="wo_out" class="form-select select-2">
-                                <option value="">-- Select WO --</option>
-                                @foreach($nowo as $key => $value)
-                                    <option value="{{$value->no_wo}}">{{$value->no_wo}}</option>
-                                @endforeach
-                            </select>
+                            <input type="text" class="form-control" id="pcs_out">
                         </div>
 
                         <div class="col-md-12">
