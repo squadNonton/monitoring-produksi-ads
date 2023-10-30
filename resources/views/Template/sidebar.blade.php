@@ -14,6 +14,7 @@
                 <i class="bi bi-menu-button-wide"></i><span>Produksi</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="produksi-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+                {{-- sidebar --}}
                 <li>
                     <a href="{{route('prodin')}}" class="active">
                         <i class="bi bi-circle"></i><span>Produksi IN</span>
