@@ -15,6 +15,9 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
         <!-- Vendor CSS Files -->
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/daterangepicker/datepicker.css')}}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/daterangepicker/daterangepicker.css')}}" />
+        <link rel="stylesheet" href="{{asset('assets/daterangepicker/datepicker.min.css')}}">
         <link href="{{asset('assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
         <link href="{{ asset('assets/select2/select2.min.css') }}" rel="stylesheet">
         <link href="{{asset('assets/vendor/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
@@ -34,6 +37,8 @@
         <script src="{{asset('assets/sweetalert2/sweetalert2.all.min.js')}}"></script>
         <script src="{{ asset ('assets/highchart/highcharts.js')}}"></script>
 
+        @include('Template.head')
+
         <script>
             $.ajaxSetup({
                 headers: {
@@ -42,7 +47,7 @@
             });
         </script>
     </head>
-    <body>
+    <body class="toggle-sidebar">
         {{-- Header --}}
         @include('Template.header')
         {{-- Sidebar --}}
