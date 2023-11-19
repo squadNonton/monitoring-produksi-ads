@@ -4,6 +4,47 @@
 <section class="section dashboard">
     <div class="row align-items-top">
 
+        <div class="col-12">
+            <div class="card border-primary border-top border-3 border-0 p-3">
+                <div class="card-header">
+                    <div class="row">
+
+                        <div class="col-3">
+                            <div class="mb-0">
+                                <label for="" class="form-label">Select SHAPE</label>
+                                <select data-name="shape" class="form-select select2">
+                                    @foreach ($shape as $key => $value)
+                                        <option value="{{$value->id}}">{{ $value->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-3">
+                            <div class="mb-0">
+                                <label for="" class="form-label">Select Material</label>
+                                <select data-name="material" class="form-select select2" id="material_select">
+                                    @foreach ($material as $key => $value)
+                                        <option value="{{ $value->id }}">{{ $value->grade }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="card-body">
+                    <div class="d-flex justify-content-center">
+                        <h6 class="mb-0" id="material_name"></h6>
+                    </div>
+                    <figure class="highcharts-figure m-0">
+                        <div id="chartquartal"></div>
+                    </figure>
+                </div>
+            </div>
+        </div>
+
         <div class="col-lg-6">
             <div class="card mb-3">
                 <div class="card-header">
@@ -52,17 +93,17 @@
             </div>
         </div>
 
-        <div class="col-lg-6">
+        <div class="col-lg-12">
             <div class="card mb-3">
                 <div class="card-header">
                     <div class="d-flex justify-content-between">
-                        <span>Effisiensi Machine (%)</span>
+                        <span>Production - Efisiensi</span>
                         <div class="dropdown">
                             <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Today
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#" data-name="filter_today" data-item="updatecharteffisiensimachine">Today</a></li>
+                                <li><a class="dropdown-item" href="#" data-name="filter_today" data-item="">Today</a></li>
                                 <li><a class="dropdown-item" href="#" data-name="filter_machine" data-item="updatecharteffisiensimachine">Select Machine</a></li>
                             </ul>
                         </div>
@@ -76,115 +117,26 @@
             </div>
         </div>
 
-        <div class="col-lg-6">
+        <div class="col-lg-12">
             <div class="card mb-3">
                 <div class="card-header">
                     <div class="d-flex justify-content-between">
-                        <span>Activity Man Power</span>
+                        <span>Production - Man Power</span>
                         <div class="dropdown">
                             <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Today
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#" data-name="filter_today" data-item="updatechartjumlahmp">Today</a></li>
-                                <li><a class="dropdown-item" href="#" data-name="filter_machine" data-item="updatechartjumlahmp">Select Machine</a></li>
+                                <li><a class="dropdown-item" href="#" data-name="filter_today" data-item="">Today</a></li>
+                                <li><a class="dropdown-item" href="#" data-name="date_range" data-item="">Select Date</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="card-body">
                     <figure>
-                        <div id="chartjumlahmp"></div>
+                        <div id="chartmanpower"></div>
                     </figure>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-6">
-            <div class="card mb-3">
-                <div class="card-header">Oktober 2023</div>
-                <div class="card-body">
-                    <table class="table table-bordered dasbor">
-                        <thead>
-                            <tr>
-                                <th scope="col" class="text-center" rowspan="2">TGL</th>
-                                <th scope="col" class="text-center" colspan="6">OCTOBER 2023</th>
-                            </tr>
-                            <tr>
-                                <th scope="col" class="text-center">01</th>
-                                <th scope="col" class="text-center">02</th>
-                                <th scope="col" class="text-center">03</th>
-                                <th scope="col" class="text-center">04</th>
-                                <th scope="col" class="text-center">05</th>
-                                <th scope="col" class="text-center">06</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="text-center">WO SISA</td>
-                                <td class="text-center">10</td>
-                                <td class="text-center">10</td>
-                                <td class="text-center">10</td>
-                                <td class="text-center">10</td>
-                                <td class="text-center">10</td>
-                                <td class="text-center">10</td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">WO IN (KG)</td>
-                                <td class="text-center">10</td>
-                                <td class="text-center">10</td>
-                                <td class="text-center">10</td>
-                                <td class="text-center">10</td>
-                                <td class="text-center">10</td>
-                                <td class="text-center">10</td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">ACT PROD (TON)</td>
-                                <td class="text-center">10</td>
-                                <td class="text-center">10</td>
-                                <td class="text-center">10</td>
-                                <td class="text-center">10</td>
-                                <td class="text-center">10</td>
-                                <td class="text-center">10</td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">WO IN (PCS)</td>
-                                <td class="text-center">10</td>
-                                <td class="text-center">10</td>
-                                <td class="text-center">10</td>
-                                <td class="text-center">10</td>
-                                <td class="text-center">10</td>
-                                <td class="text-center">10</td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">% EFF MESIN (RUN)</td>
-                                <td class="text-center">10%</td>
-                                <td class="text-center">10%</td>
-                                <td class="text-center">10%</td>
-                                <td class="text-center">10%</td>
-                                <td class="text-center">10%</td>
-                                <td class="text-center">10%</td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">ACTUAL MP</td>
-                                <td class="text-center">10</td>
-                                <td class="text-center">10</td>
-                                <td class="text-center">10</td>
-                                <td class="text-center">10</td>
-                                <td class="text-center">10</td>
-                                <td class="text-center">10</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-6">
-            <div class="card mb-3">
-                <div class="card-header">ISSUE :</div>
-                <div class="card-body issue">
-
                 </div>
             </div>
         </div>
@@ -238,10 +190,182 @@
         setTimeout(updatechartprodkg);
         setTimeout(updatechartprodpcs);
         setTimeout(updatecharteffisiensimachine);
-        setTimeout(updatechartjumlahmp);
+        setTimeout(updatechartmanpower);
+        setTimeout(updatechartquartal);
     });
 </script>
 
+{{-- JS Quartal --}}
+<script>
+    $(document).on("change", "[data-name='shape']", function(e) {
+            var id = $(this).val();
+            var table = 'mst_material';
+            var field = 'shape';
+
+            $.ajax({
+                type: "POST",
+                url: "{{ route('actionlistdata') }}",
+                data: {
+                    id: id,
+                    table: table,
+                    field: field
+                },
+                cache: false,
+                success: function(data) {
+                    // console.log(data);
+                    var html = '';
+                    $.each(data, function(i, val) {
+                        html += '<option value="'+val.id+'">' + val.grade + '</option>';
+                    });
+                    $('#material_select').html(html);
+                },
+                error: function(data) {
+                    Swal.fire({
+                        position: 'center',
+                        title: 'Action Not Valid!',
+                        icon: 'warning',
+                        showConfirmButton: true,
+                        // timer: 1500
+                    }).then((data) => {
+                        // location.reload();
+                    })
+                }
+            });
+        });
+
+        $(document).on("change", "[data-name='material']", function(e) {
+            var id = $(this).val();
+            updatechartquartal(id);
+        });
+
+        Highcharts.chart('chartquartal', {
+            chart: {
+                type: 'line'
+            },
+            title: {
+                text: ''
+            },
+            exporting: {
+                enabled: false
+            },
+            credits: {
+                enabled: false
+            },
+            xAxis: {
+                categories: []
+            },
+            yAxis: [{
+                title: {
+                    text: null
+                },
+                labels: {
+                    format: '¥{value}'
+                }
+            }, {
+                title: {
+                    text: null
+                },
+                labels: {
+                    format: '¥{value}'
+                },
+                opposite: true
+            }],
+            tooltip: {
+                headerFormat: '<span>{point.key}</span><br>',
+                pointFormat: '<span style="color:{series.color};">{series.name}:</span>&nbsp;&nbsp;<span>¥{point.y}</span><br>',
+                footerFormat: '</table>',
+                crosshairs: true,
+                shared: true
+            },
+            plotOptions: {
+                line: {
+                    dataLabels: {
+                        enabled: true,
+                        format: '¥{y}'
+                    }
+                }
+            },
+            series: [{
+                name: 'Base',
+                color: '#47A992',
+                marker: {
+                    enabled: false
+                },
+                data: []
+            }, {
+                name: 'Alloy Surcharger',
+                yAxis: 1,
+                color: '#0E2954',
+                marker: {
+                    enabled: false
+                },
+                data: []
+            }, {
+                name: 'CNF',
+                color: '#CD1818',
+                marker: {
+                    enabled: false
+                },
+                data: []
+            }, {
+                name: 'Freight',
+                yAxis: 1,
+                color: '#4E31AA',
+                marker: {
+                    enabled: false
+                },
+                data: []
+            }]
+        });
+
+        var timeouts = {};
+        function updatechartquartal(id) {
+            var id = id;
+            var chart = $('#chartquartal').highcharts();
+            $.ajax({
+                url: "{{ route('dataquartal') }}",
+                type: "POST",
+                data: {
+                    id: id
+                },
+                dataType: 'json',
+                global: false,
+                cache: false,
+                success: function(data) {
+                    // console.log(data);
+                    $("#material_name").text(data.material_name);
+                    // chart.xAxis[0].setCategories(data.category);
+                    chart.xAxis[0].update({
+                        categories: data.category
+                    });
+                    chart.series[0].setData(data.dt_base);
+                    chart.series[1].setData(data.dt_alloy);
+                    chart.series[2].setData(data.dt_cnf);
+                    chart.series[3].setData(data.dt_freight);
+                    // Check if start and end are undefined
+                    if (id === undefined) {
+                        // If timeout for this id already exists, clear it
+                        if (timeouts['quartal']) {
+                            clearTimeout(timeouts['quartal']);
+                        }
+                        // Set a new timeout for this id
+                        timeouts['quartal'] = setTimeout(function () {
+                            updatechartquartal();
+                        }, 1000); // call updateChart every 3 seconds
+                    }
+                },
+                complete: function(data) {
+                    // setTimeout(updatechartquartal, 1000);
+                    if (id !== undefined ) {
+                        clearTimeout(timeouts['quartal']);
+                    }
+                }
+            });
+        }
+</script>
+{{-- End JS Quartal --}}
+
+{{-- JS PCS --}}
 <script>
     Highcharts.chart('chartprodpcs', {
         chart: {
@@ -342,7 +466,9 @@
         });
     }
 </script>
+{{-- End JS PCS --}}
 
+{{-- JS KG --}}
 <script>
     Highcharts.chart('chartprodkg', {
         chart: {
@@ -444,7 +570,9 @@
         });
     }
 </script>
+{{-- End JS KG --}}
 
+{{-- JS Effisiensi --}}
 <script>
     Highcharts.chart('charteffisiensimachine', {
         chart: {
@@ -464,30 +592,30 @@
             categories: []
         },
         yAxis: {
-            allowDecimals: false,
-            min: 0,
+            allowDecimals: true,
             title: {
                 text: ''
-            }
-        },
-        tooltip: {
-            format: '<b>{key}</b><br/>{series.name}: {y}<br/>' +
-                'Total: {point.stackTotal}'
+            },
         },
         plotOptions: {
             series: {
                 borderWidth: 0,
                 dataLabels: {
                     enabled: true,
-                    format: '{point.y:f}%'
+                    format: '{point.y:.0f}%'
                 }
             }
         },
         series: [{
-            name: 'Effisiensi',
+            name: 'Shift 1',
             // data: [20, 40, 60, 80, 100, 80],
             data: [],
-            color: '#FFC436'
+            color: '#0174BE'
+        },{
+            name: 'Shift 2',
+            // data: [20, 40, 60, 80, 100, 80],
+            data: [],
+            color: '#00A9FF'
         }]
     });
 
@@ -507,11 +635,12 @@
             global: false,
             cache: false,
             success: function(data) {
-                console.log(data);
+                // console.log(data);
                 chart.xAxis[0].update({
                     categories: data.category
                 });
-                chart.series[0].setData(data.eff);
+                chart.series[0].setData(data.shift1);
+                chart.series[1].setData(data.shift2);
                 
                 // Check if start and end are undefined
                 if (id === undefined) {
@@ -534,9 +663,11 @@
         });
     }
 </script>
+{{-- End JS Effisiensi --}}
 
+{{-- JS Man Power --}}
 <script>
-    Highcharts.chart('chartjumlahmp', {
+    Highcharts.chart('chartmanpower', {
         chart: {
             type: 'column'
         },
@@ -554,77 +685,101 @@
             categories: []
         },
         yAxis: {
-            allowDecimals: false,
-            min: 0,
+            allowDecimals: true,
             title: {
                 text: ''
-            }
-        },
-        tooltip: {
-            format: '<b>{key}</b><br/>{series.name}: {y}<br/>' +
-                'Total: {point.stackTotal}'
+            },
         },
         plotOptions: {
             series: {
                 borderWidth: 0,
                 dataLabels: {
                     enabled: true,
-                    format: '{point.y:f}'
+                    format: '{point.y:.0f}'
                 }
             }
         },
         series: [{
-            name: 'Jumlah MP',
-            // data: [2, 4, 6, 8, 1, 8],
+            name: 'Total Cuting',
+            // data: [20, 40, 60, 80, 100, 80],
             data: [],
-            color: '#748E63'
+            color: '#0174BE'
+        },{
+            name: 'CT Shift 1',
+            // data: [20, 40, 60, 80, 100, 80],
+            data: [],
+            color: '#00A9FF'
+        },{
+            name: 'CT Shift 2',
+            // data: [20, 40, 60, 80, 100, 80],
+            data: [],
+            color: '#87C4FF'
+        },{
+            name: 'Total Machining',
+            // data: [20, 40, 60, 80, 100, 80],
+            data: [],
+            color: '#29ADB2'
+        },{
+            name: 'MC Shift 1',
+            // data: [20, 40, 60, 80, 100, 80],
+            data: [],
+            color: '#1AACAC'
+        },{
+            name: 'MC Shift 2',
+            // data: [20, 40, 60, 80, 100, 80],
+            data: [],
+            color: '#C5E898'
         }]
     });
 
-    
     var timeouts = {};
-    function updatechartjumlahmp(id,start,end) {
-        var id      = id;
+    function updatechartmanpower(start,end) {
         var start   = start;
         var end     = end;
-        var chart = $('#chartjumlahmp').highcharts();
+        var chart = $('#chartmanpower').highcharts();
         $.ajax({
             url: "{{ route('dataactmanpower') }}",
             type: "POST",
             data: {
-                id: id, start:start, end:end
+                start:start, end:end
             },
             dataType: 'json',
             global: false,
             cache: false,
             success: function(data) {
-                console.log(data);
+                // console.log(data);
                 chart.xAxis[0].update({
                     categories: data.category
                 });
-                chart.series[0].setData(data.mp);
+                chart.series[0].setData(data.ct);
+                chart.series[1].setData(data.cts1);
+                chart.series[2].setData(data.cts2);
+                chart.series[3].setData(data.mc);
+                chart.series[4].setData(data.mcs1);
+                chart.series[5].setData(data.mcs2);
                 
                 // Check if start and end are undefined
-                if (id === undefined) {
+                if (start === undefined) {
                     // If timeout for this id already exists, clear it
-                    if (timeouts['prodjmlmp']) {
-                        clearTimeout(timeouts['prodjmlmp']);
+                    if (timeouts['prodmanpower']) {
+                        clearTimeout(timeouts['prodmanpower']);
                     }
                     // Set a new timeout for this id
-                    timeouts['prodjmlmp'] = setTimeout(function () {
-                        updatechartjumlahmp();
+                    timeouts['prodmanpower'] = setTimeout(function () {
+                        updatechartmanpower();
                     }, 1000); // call updateChart every 3 seconds
                 }
             },
             complete: function(data) {
-                // setTimeout(updatechartprodjmlmp, 1000);
-                if (id !== undefined ) {
-                    clearTimeout(timeouts['prodjmlmp']);
+                // setTimeout(updatechartprodeff, 1000);
+                if (start !== undefined ) {
+                    clearTimeout(timeouts['prodmanpower']);
                 }
             }
         });
     }
 </script>
+{{-- End JS Man Power --}}
 
 {{-- JS Filter --}}
 <script>
@@ -647,9 +802,6 @@
         }else if(action === 'updatecharteffisiensimachine'){
             updatecharteffisiensimachine(id,start,end);
             $("#select_machine").modal('hide');
-        }else if(action == 'updatechartjumlahmp'){
-            updatechartjumlahmp(id,start,end);
-            $("#select_machine").modal('hide');
         }
     });
 
@@ -665,8 +817,8 @@
             updatechartprodkg(id,start,end);
         }else if(action === 'updatecharteffisiensimachine'){
             updatecharteffisiensimachine(id,start,end);
-        }else if(action == 'updatechartjumlahmp'){
-            updatechartjumlahmp(id,start,end);
+        }else if(action == 'updatechartmanpower'){
+            updatechartmanpower(start,end);
         }
     });
     
@@ -678,6 +830,11 @@
         allowClear: false,
         width: '100%',
         dropdownParent: $("#select_machine")
+    });
+
+    $(".select2").select2({
+        allowClear: false,
+        width: '100%'
     });
 </script>
 

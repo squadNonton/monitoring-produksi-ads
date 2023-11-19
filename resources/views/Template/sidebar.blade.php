@@ -10,6 +10,7 @@
         </li>
 
         <li class="nav-item">
+<<<<<<< HEAD
             <a class="nav-link collapsed" data-bs-target="#produksi-nav" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-menu-button-wide"></i><span>Produksi</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
@@ -42,13 +43,39 @@
             <a class="nav-link collapsed" href="">
                 <i class="bi bi-grid"></i>
                 <span>Man Power</span>
+=======
+            <a class="nav-link collapsed" href="{{route('masterbaseprice')}}">
+                <i class="bi bi-cash-stack"></i>
+                <span>Master Base Price</span>
+>>>>>>> 03d62cb793a0ba8c619e1de078e0080d0e727667
             </a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="">
-                <i class="bi bi-grid"></i>
-                <span>Machine</span>
+            <a class="nav-link collapsed" href="{{route('ppicschedule')}}">
+                <i class="bi bi-calendar-check"></i>
+                <span>PPIC - Schedule</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{route('prodoutput')}}">
+                <i class="bi bi-bag-check"></i>
+                <span>Production - Output</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{route('prodefisiensi')}}">
+                <i class="bi bi-robot"></i>
+                <span>Production - Efisiensi</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{route('prodmanpower')}}">
+                <i class="bi bi-person-fill-gear"></i>
+                <span>Production - Man Power</span>
             </a>
         </li>
 
@@ -58,6 +85,8 @@
                 <span>Produksi</span>
             </a>
         </li> --}}
+
+
 
     </ul>
 
